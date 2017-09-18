@@ -21,7 +21,7 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="/css/ie/v8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="/css/ie/v9.css" /><![endif]-->
 
-    <title>Online Assignments | CIS 2200 Fall 2017 </title>
+    <title>Basics in R | CIS 2200 Fall 2017 </title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width">
 </head>
@@ -38,39 +38,17 @@
         </h1>
         <nav id="nav">
             <ul>
-                <!-- <li class="current"><a href="index.html">Welcome</a></li> --> 
- 
- 
- 
-
+                <!-- <li class="current"><a href="index.html">Welcome</a></li> -->
                     <li><a href="/cis2200f17syllabus.html">Syllabus</a></li>
+                    <li><a href="/hw/index.html">Online Assignments</a></li>
  
                 <!--<li> <a href="/CV">CV</a></li>-->
                 
-		<li >
-			<a href="../category/announcements/">announcements</a>
-			<ul>
-		<li><a href="../anouncement-week-1/">Week 1</a></li>
-			</ul>
-		</li>
-		<li >
-			<a href="../category/assignment/">assignment</a>
-			<ul>
-		<li><a href="../assignment-week-1/">Assignment</a></li>
-			</ul>
-		</li>
-		<li >
-			<a href="../category/projects/">projects</a>
-			<ul>
-		<li><a href="../project-week-1/">Online Assignments</a></li>
-			</ul>
-		</li>
-		<li >
-			<a href="../category/resources/">resources</a>
-			<ul>
-		<li><a href="../resource-week-1/">resource</a></li>
-			</ul>
-		</li>
+                <li class="submenu">
+                    <a href="../announcements">Announcements</a>
+                    <ul>
+                    </ul>
+                </li>
                 <li><a href="#" class="button special">More</a></li>
             </ul>
         </nav>
@@ -81,7 +59,7 @@
 
   <header class="special container">
     <span class="icon fa-mobile"></span>
-    <h2>Online Assignments</h2>
+    <h2>Basics in R</h2>
     <!-- add page sub title here -->
     <!-- <p>Where that in the center faces the nameless horrors alone.</p> -->
   </header>
@@ -93,8 +71,72 @@
       <div class="content">
         <section>
           <!-- <a href="#" class="image feature"><img src="images/pic04.jpg" alt="" /></a> -->
-          <p><h1>Week 1</h1>
-<p><a href="{filename}/pdfs/assignment1.pdf">Assignment 1a</a></p></p>
+          <p><h4>Dealing with Variables: Create, Rename, Recode &amp; Merge</h4>
+<p><em>(Source: Tutorial by <strong>Klodian Dhana</strong> on datascienceplus.com)</em></p>
+<h3>1. Create a Dataset:</h3>
+<blockquote>
+<p>hospital &lt;- c("New York", "California")
+patients &lt;- c(150, 350)
+costs &lt;- c(3.1, 2.5)
+df &lt;- data.frame (hospital, patients, costs)</p>
+</blockquote>
+<p>The data created is called <strong>df</strong>:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Hospital</th>
+<th align="center">Patients</th>
+<th align="center">Costs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">New York</td>
+<td align="center">150</td>
+<td align="center">3.1</td>
+</tr>
+<tr>
+<td align="center">California</td>
+<td align="center">350</td>
+<td align="center">2.5</td>
+</tr>
+</tbody>
+</table>
+<h3>2. Create a New Variable:</h3>
+<p>A new variable called totcosts as shown below is created:</p>
+<blockquote>
+<p>df$totcosts &lt;- df$patients * df$costs</p>
+</blockquote>
+<p>The new dataset will look have another column called "totcosts" with the two values that are multiplications of patients &amp; costs.</p>
+<h3>3. Rename a Variable:</h3>
+<p>To rename the variable costs, for example, to costs_euro:</p>
+<blockquote>
+<p>df$costs_euro &lt;- df$costs</p>
+</blockquote>
+<h3>4. Delete a Variable:</h3>
+<p>To delete the variable costs:</p>
+<blockquote>
+<p>df$costs &lt;- NULL</p>
+</blockquote>
+<h3>5. Recode a Variable:</h3>
+<p>To recode variable patients:</p>
+<blockquote>
+<p>df$patients &lt;- ifelse(df$patients==150, 100, ifelse(df$patients==350, 300, NA))</p>
+</blockquote>
+<p>This way, the patients column in the dataframe will be have the values of 100 and 300, instead of 150 and 350 as currently.</p>
+<h3>6. Merge Datasets:</h3>
+<p><em>To Add Columns</em>: use merge(), which requires the datasets to have a common variable. </p>
+<blockquote>
+<p>finaldt &lt;- merge(dataset1, dataset2, by="id")</p>
+</blockquote>
+<p>If datasets do not have a common variable, use the function cbind(), which requires that both datasets to have the same order. </p>
+<blockquote>
+<p>finaldt &lt;- cbind(dataset1, dataset2)</p>
+</blockquote>
+<p><em>To Add Rows</em>: use rbind(), which requires that datasets have exactly the same variable names and same number of variables. </p>
+<blockquote>
+<p>finaldt &lt;- rbind(dataset1, dataset2)</p>
+</blockquote></p>
         </section>
       </div>
 
@@ -103,54 +145,6 @@
   <!-- Two -->
     <section class="wrapper style1 container special">
         <div class="row">
-          <div class="4u">
-
-            <section>
-              <span class="icon feature fa-"></span>
-              <header>
-                <a href="../anouncement-week-1" rel='bookmark'><h3>Week 1</h3></a>
-              </header>
-              <p>Week 1 announcements</p>
-              <footer>
-                  <ul class="buttons">
-                      <li><a href="../anouncement-week-1" class="button small">Read More</a></li>
-                  </ul>
-              </footer>
-            </section>
-
-          </div>
-          <div class="4u">
-
-            <section>
-              <span class="icon feature fa-"></span>
-              <header>
-                <a href="../assignment-week-1" rel='bookmark'><h3>Assignment</h3></a>
-              </header>
-              <p>Week 1 Assignment</p>
-              <footer>
-                  <ul class="buttons">
-                      <li><a href="../assignment-week-1" class="button small">Read More</a></li>
-                  </ul>
-              </footer>
-            </section>
-
-          </div>
-          <div class="4u">
-
-            <section>
-              <span class="icon feature fa-"></span>
-              <header>
-                <a href="../project-week-1" rel='bookmark'><h3>Online Assignments</h3></a>
-              </header>
-              <p>Week 1 project</p>
-              <footer>
-                  <ul class="buttons">
-                      <li><a href="../project-week-1" class="button small">Read More</a></li>
-                  </ul>
-              </footer>
-            </section>
-
-          </div>
         </div>
     </section>
   </article>
